@@ -3,41 +3,30 @@
         {
             "DownstreamPathTemplate": "/api/quizrt/questions",
             "DownstreamScheme": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "localhost",
-                    "Port": 7001
-                }
-            ],
+            "ServiceName": "QuestionGenerator",
             "UpstreamPathTemplate": "/questiongenerator/questions",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
             "DownstreamPathTemplate": "/api/quizrt/questions/{topicname}",
             "DownstreamScheme": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "localhost",
-                    "Port": 7001
-                }
-            ],
+            "ServiceName": "QuestionGenerator",
             "UpstreamPathTemplate": "/questiongenerator/questions/{topicname}",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
             "DownstreamPathTemplate": "/api/quizrt/templates",
             "DownstreamScheme": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "localhost",
-                    "Port": 7001
-                }
-            ],
+            "ServiceName": "QuestionGenerator",
             "UpstreamPathTemplate": "/questiongenerator/templates",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         }
     ],
     "GlobalConfiguration": {
-        "BaseUrl": "https://localhost:7000"
+        "ServiceDiscoveryProvider": {
+            "Host": "consul",
+            "Port": 8500,
+            "Type": "Consul"
+        }
     }
 }

@@ -3,6 +3,7 @@ services:
   consul: 
     image: consul
     restart: always
+    network_mode: host
   gateway: 
     build: 
       context: ./Gateway

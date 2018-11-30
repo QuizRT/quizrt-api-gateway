@@ -22,6 +22,7 @@
 FROM microsoft/dotnet
 COPY . /app
 WORKDIR /app
+RUN "apt-get install iputils-ping"
 RUN "ping -c 1 consul"
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]

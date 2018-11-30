@@ -12,6 +12,8 @@ services:
       - consul
       - registrator
     network_mode: host
+    ports:
+      - "7000"
   registrator: 
     image: gliderlabs/registrator
     # network_mode: host

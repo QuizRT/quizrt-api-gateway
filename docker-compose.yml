@@ -3,6 +3,8 @@ services:
   consul: 
     image: consul
     restart: always
+    ports:
+      - "0.0.0.0:8500:8500"
   gateway: 
     build: 
       context: ./Gateway

@@ -3,7 +3,6 @@ services:
   consul: 
     image: consul
     restart: always
-    network_mode: host
   gateway: 
     build: 
       context: ./Gateway
@@ -13,11 +12,11 @@ services:
     network_mode: host
   registrator: 
     image: gliderlabs/registrator
-    network_mode: host
+    # network_mode: host
     restart: always
     volumes: 
       - "/var/run/docker.sock:/tmp/docker.sock"
     depends_on:
       - consul
-    command: "-internal consul://localhost:8500"
+    command: "-internal consul://consul:8500"
 version: "3"

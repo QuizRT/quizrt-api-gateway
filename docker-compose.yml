@@ -19,5 +19,5 @@ services:
       - "/var/run/docker.sock:/tmp/docker.sock"
     depends_on:
       - consul
-    command: "-internal consul://consul:8500"
+    command: "-internal consul://localhost:8500"
 version: "3"

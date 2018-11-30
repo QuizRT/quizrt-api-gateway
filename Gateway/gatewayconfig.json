@@ -19,7 +19,7 @@
             "DownstreamScheme": "http",
             "ServiceName": "QuestionGenerator",
             "UpstreamPathTemplate": "/questiongenerator/templates",
-            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+            "UpstreamHttpMethod": [ "Get", "Post", "PUT", "DELETE", "OPTIONS" ]
         }
     ],
     "GlobalConfiguration": {

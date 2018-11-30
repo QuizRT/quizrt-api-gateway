@@ -33,7 +33,6 @@ namespace Gateway
             // services.AddOcelot(Configuration);
             services.AddOcelot(Configuration).AddConsul();
 
-            services.AddCors(); // adding CORS service for use in  Configure
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,18 +42,14 @@ namespace Gateway
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
-
+            
             app.UseCors(builder => builder
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
+                .AllowCredentials()
             ); //for CORS
 
-            
             app.UseOcelot().Wait();
         }
     }

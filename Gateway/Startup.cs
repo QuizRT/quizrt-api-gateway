@@ -31,7 +31,7 @@ namespace Gateway
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddOcelot(Configuration);
-            // services.AddOcelot(Configuration).AddConsul();
+            services.AddOcelot(Configuration).AddConsul();
 
             services.AddCors(); // adding CORS service for use in  Configure
         }

@@ -1,13 +1,6 @@
 {
     "ReRoutes": [
         {
-            "DownstreamPathTemplate": "/",
-            "DownstreamScheme": "http",
-            "ServiceName": "QuestionGenerator",
-            "UpstreamPathTemplate": "/questiongenerator",
-            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-        },
-        {
             "DownstreamPathTemplate": "/api/quizrt/questions",
             "DownstreamScheme": "http",
             "ServiceName": "QuestionGenerator",

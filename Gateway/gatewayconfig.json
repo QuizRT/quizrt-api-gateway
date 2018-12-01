@@ -4,7 +4,7 @@
             "DownstreamPathTemplate": "/",
             "DownstreamScheme": "http",
             "ServiceName": "QuestionGenerator",
-            "UpstreamPathTemplate": "/questiongenerator/",
+            "UpstreamPathTemplate": "/questiongenerator",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {

@@ -14,6 +14,7 @@ using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
 using Consul;
 using Ocelot.Provider.Consul;
+using Microsoft.AspNetCore.Http;
 
 namespace Gateway
 {
@@ -49,6 +50,32 @@ namespace Gateway
                 .AllowAnyHeader()
                 .AllowCredentials()
             ); //for CORS
+
+            app.Use(async (context, next) => {
+                var token = context.Request.Headers["Authorization"];
+                Chilkat.Global glob = new Chilkat.Global();
+                glob.UnlockBundle("Anything for 30-day trial");
+
+                using (var client = new ConsulClient())
+                {
+                    client.Config.Address = new Uri("http://172.23.238.173:8500");
+                    var getpair2 = client.KV.Get("myPublicKey");
+                    string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
+                    Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();
+                    rsaExportedPublicKey.ImportPublicKey(secret);
+                    var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
+                    var jwt = new Chilkat.Jwt();
+                    if (jwt.VerifyJwtPk(token, publickey)&&(jwt.IsTimeValid(token,0)))
+                    {
+                        await next();
+                    }
+                    else
+                    {
+                        context.Response.StatusCode = 403;
+                        await context.Response.WriteAsync("UnAuthorized");
+                    }
+                }
+            });
 
             app.UseOcelot().Wait();
         }

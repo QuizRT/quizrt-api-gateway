@@ -1,0 +1,13 @@
+language: csharp
+solution: quizrt-api-gateway.sln
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+  slack: cgiwave6:h9BQb1Y4KA4QNTysVx79hgt0
+mono: none
+dotnet: 2.1
+script:
+  - dotnet restore Gateway/
+# after_success:
+#   - /bin/bash ./deploy.sh 

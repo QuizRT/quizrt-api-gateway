@@ -6,7 +6,8 @@ services:
     networks: 
       - quizrt-gateway-network
   gateway: 
-    build: 
+    build:
+      context: ./Gateway
     depends_on: 
       - consul
       - registrator

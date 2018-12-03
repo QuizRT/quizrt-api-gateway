@@ -1,4 +1,4 @@
---- 
+version: "3"
 services: 
   consul: 
     image: consul
@@ -20,4 +20,3 @@ services:
       - consul
     network_mode: host
     command: "-internal consul://localhost:8500"
-version: "3"

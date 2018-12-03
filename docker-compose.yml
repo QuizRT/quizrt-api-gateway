@@ -8,6 +8,8 @@ services:
   gateway: 
     build:
       context: ./Gateway
+    ports:
+      - "7000:7000"
     depends_on: 
       - consul
       - registrator

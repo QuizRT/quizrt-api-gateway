@@ -22,7 +22,6 @@
 FROM microsoft/dotnet
 COPY . /app
 WORKDIR /app
-RUN apt-get install iputils-ping
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
 # EXPOSE 80/tcp

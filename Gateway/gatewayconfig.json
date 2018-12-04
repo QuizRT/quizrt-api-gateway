@@ -67,7 +67,7 @@
           "DownstreamPathTemplate": "/{url}",
           "DownstreamScheme": "http",
           "ServiceName": "QuizEngine",
-          "UpstreamPathTemplate": "/{url}",
+          "UpstreamPathTemplate": "/quizengine/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         }
     ],

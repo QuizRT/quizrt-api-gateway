@@ -39,7 +39,7 @@
             "DownstreamPathTemplate": "/api/quizrt/{topicname}",
             "DownstreamScheme": "http",
             "ServiceName": "QuestionGenerator",
-            "UpstreamPathTemplate": "/questiongenerator/{topicname}",
+            "UpstreamPathTemplate": "/questiongenerator/topics/{topicname}",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {

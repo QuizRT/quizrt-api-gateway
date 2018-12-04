@@ -57,7 +57,7 @@
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-          "DownstreamPathTemplate": "/{url}",
+          "DownstreamPathTemplate": "/quizmaster/{url}",
           "DownstreamScheme": "http",
           "ServiceName": "QuizMaster",
           "UpstreamPathTemplate": "/quizmaster/{url}",

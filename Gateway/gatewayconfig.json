@@ -46,7 +46,7 @@
             "DownstreamPathTemplate": "/swagger",
             "DownstreamScheme": "http",
             "ServiceName": "QuestionGenerator",
-            "UpstreamPathTemplate": "/questiongenerator",
+            "UpstreamPathTemplate": "/questiongenerator/swagger",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {

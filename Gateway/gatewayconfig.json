@@ -8,10 +8,10 @@
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-            "DownstreamPathTemplate": "/api/quizrt/questions/{topicname}",
+            "DownstreamPathTemplate": "/api/quizrt/questions/{catch}",
             "DownstreamScheme": "http",
             "ServiceName": "QuestionGenerator",
-            "UpstreamPathTemplate": "/questiongenerator/questions/{topicname}",
+            "UpstreamPathTemplate": "/questiongenerator/questions/{catch}",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
@@ -40,6 +40,13 @@
             "DownstreamScheme": "http",
             "ServiceName": "QuestionGenerator",
             "UpstreamPathTemplate": "/questiongenerator/{topicname}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/swagger",
+            "DownstreamScheme": "http",
+            "ServiceName": "QuestionGenerator",
+            "UpstreamPathTemplate": "/questiongenerator",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {

@@ -62,6 +62,13 @@
           "ServiceName": "QuizMaster",
           "UpstreamPathTemplate": "/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+          "DownstreamPathTemplate": "/{url}",
+          "DownstreamScheme": "http",
+          "ServiceName": "QuizEngine",
+          "UpstreamPathTemplate": "/{url}",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         }
     ],
     "GlobalConfiguration": {

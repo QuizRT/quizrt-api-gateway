@@ -50,24 +50,38 @@
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-          "DownstreamPathTemplate": "/",
-          "DownstreamScheme": "http",
-          "ServiceName": "QuizMaster",
-          "UpstreamPathTemplate": "/quizmaster",
-          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-        },
-        {
           "DownstreamPathTemplate": "/{url}",
           "DownstreamScheme": "http",
           "ServiceName": "QuizMaster",
-          "UpstreamPathTemplate": "/{url}",
+          "UpstreamPathTemplate": "/quizmaster/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-          "DownstreamPathTemplate": "/{url}",
+          "DownstreamPathTemplate": "/{catch}",
           "DownstreamScheme": "http",
           "ServiceName": "QuizEngine",
-          "UpstreamPathTemplate": "/quizengine/{url}",
+          "UpstreamPathTemplate": "/quizengine/{catch}",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+          "DownstreamPathTemplate": "/{url}",
+          "DownstreamScheme": "http",
+          "ServiceName": "GamePlay",
+          "UpstreamPathTemplate": "/gameplay/{url}",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+          "DownstreamPathTemplate": "/api/{catch}",
+          "DownstreamScheme": "http",
+          "ServiceName": "Social",
+          "UpstreamPathTemplate": "/socialservice/{catch}",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+          "DownstreamPathTemplate": "/{url}",
+          "DownstreamScheme": "http",
+          "ServiceName": "SocialUI",
+          "UpstreamPathTemplate": "/social/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         }
     ],

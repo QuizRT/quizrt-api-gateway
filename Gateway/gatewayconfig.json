@@ -92,7 +92,14 @@
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-          "DownstreamPathTemplate": "/{url}",
+          "DownstreamPathTemplate": "/",
+          "DownstreamScheme": "http",
+          "ServiceName": "SocialUI",
+          "UpstreamPathTemplate": "/social/",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+          "DownstreamPathTemplate": "/social/{url}",
           "DownstreamScheme": "http",
           "ServiceName": "SocialUI",
           "UpstreamPathTemplate": "/social/{url}",

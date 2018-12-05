@@ -54,6 +54,9 @@ namespace Gateway
             app.Use(async (context, next) => {
                 //var token = context.Request.Headers["Authorization"];
                // var token = context.Request.Cookies["UserLoginAPItoken"];
+
+               //switch(context.Request.Path.ToString())
+               Console.WriteLine(context.Request.Path.ToString());
                Microsoft.AspNetCore.Http.IRequestCookieCollection cookies = context.Request.Cookies;
                var token = cookies["UserLoginAPItoken"];
                 Chilkat.Global glob = new Chilkat.Global();

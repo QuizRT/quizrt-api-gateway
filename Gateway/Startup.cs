@@ -74,7 +74,7 @@ namespace Gateway
                         string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
                         Console.WriteLine("------------Secret Key------------"+secret);
                         Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();
-                        rsaExportedPublicKey.ImportPublicKey(secret);
+                       // rsaExportedPublicKey.ImportPublicKey(secret);
                         var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
                         Console.WriteLine("--------publickey--------"+ publickey);
                         Console.WriteLine("-----token-----" + token);

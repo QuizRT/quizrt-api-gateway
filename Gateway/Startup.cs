@@ -76,6 +76,8 @@ namespace Gateway
                         Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();
                         rsaExportedPublicKey.ImportPublicKey(secret);
                         var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
+                        Console.WriteLine("--------publickey--------"+ publickey);
+                        Console.WriteLine("-----token-----" + token);
                         var jwt = new Chilkat.Jwt();
                         if (jwt.VerifyJwtPk(token, publickey))
                         {

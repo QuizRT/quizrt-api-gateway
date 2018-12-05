@@ -63,7 +63,7 @@ namespace Gateway
                 {
                     Console.WriteLine("---------entered consul----------------");
                     client.Config.Address = new Uri("http://consul:8500");
-                    var getpair2 = client.KV.Get("myPublicKey");
+                    var getpair2 = client.KV.Get("secret key");
                     Console.WriteLine("------got the getpair2------");
                     Console.WriteLine("-------key-----" + getpair2.Result.Response.Key);
                     Console.WriteLine("------Value-----"+ getpair2.Result.Response.Value);

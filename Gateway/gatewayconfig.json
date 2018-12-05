@@ -64,17 +64,24 @@
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-          "DownstreamPathTemplate": "/{catch}",
+          "DownstreamPathTemplate": "/gameplayhub",
           "DownstreamScheme": "http",
           "ServiceName": "QuizEngine",
-          "UpstreamPathTemplate": "/quizengine/{catch}",
+          "UpstreamPathTemplate": "/gameplayhub",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-          "DownstreamPathTemplate": "/gameplayhub",
+          "DownstreamPathTemplate": "/",
           "DownstreamScheme": "http",
           "ServiceName": "GamePlay",
-          "UpstreamPathTemplate": "/gameplayhub",
+          "UpstreamPathTemplate": "/gameplay/",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+          "DownstreamPathTemplate": "/gameplay/{url}",
+          "DownstreamScheme": "http",
+          "ServiceName": "GamePlay",
+          "UpstreamPathTemplate": "/gameplay/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {

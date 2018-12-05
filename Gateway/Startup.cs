@@ -58,7 +58,7 @@ namespace Gateway
                //switch(context.Request.Path.ToString())
                Console.WriteLine(context.Request.Path.ToString());
                //switch(context.Request.Path.ToString())
-               if((context.Request.Path.ToString()=="/Authentication/login")||(context.Request.Path.ToString()=="/Authentication/signup"))
+               if((context.Request.Path.ToString()=="/auth/login")||(context.Request.Path.ToString()=="/auth/signup"))
                {
                         Console.WriteLine("Calling next middleware");
                         await next();

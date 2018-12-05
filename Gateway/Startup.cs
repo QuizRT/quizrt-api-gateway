@@ -81,6 +81,7 @@ namespace Gateway
                         var jwt = new Chilkat.Jwt();
                         if (jwt.VerifyJwtPk(token, publickey))
                         {
+                            Console.WriteLine("--inside verify");
                             await next();
                         }
                         else

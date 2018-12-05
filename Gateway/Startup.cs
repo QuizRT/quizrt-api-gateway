@@ -68,8 +68,8 @@ namespace Gateway
                     Console.WriteLine("-------key-----" + getpair2.Result.Response.Key);
                     Console.WriteLine("------Value-----"+ getpair2.Result.Response.Value);
                     //var getresult = getpair2.Result.Response.Value
-                    if(getpair2.Result.Response.Value != null)
-                    {
+                    // if(getpair2.Result.Response.Value != null)
+                    // {
                         Console.WriteLine("---------Entered the function");
                         string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
                         Console.WriteLine("------------Secret Key------------"+secret);
@@ -86,7 +86,7 @@ namespace Gateway
                             context.Response.StatusCode = 403;
                             await context.Response.WriteAsync("UnAuthorized");
                         }
-                    }
+                    // }
                     // else
                     // {
                     //     context.Response.StatusCode = 403;

@@ -52,7 +52,8 @@ namespace Gateway
             ); //for CORS
 
             app.Use(async (context, next) => {
-                var token = context.Request.Headers["Authorization"];
+                //var token = context.Request.Headers["Authorization"];
+                var token = context.Request.Cookies["UserLoginAPItoken"];
                 Chilkat.Global glob = new Chilkat.Global();
                 glob.UnlockBundle("Anything for 30-day trial");
 
@@ -61,20 +62,29 @@ namespace Gateway
                     Console.WriteLine("---------entered consul----------------");
                     client.Config.Address = new Uri("http://consul:8500");
                     var getpair2 = client.KV.Get("myPublicKey");
-                    string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
-                    Console.WriteLine("------------Secret Key------------"+secret);
-                    Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();
-                    rsaExportedPublicKey.ImportPublicKey(secret);
-                    var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
-                    var jwt = new Chilkat.Jwt();
-                    if (jwt.VerifyJwtPk(token, publickey)&&(jwt.IsTimeValid(token,0)))
+                    //var getresult = getpair2.Result.Response.Value
+                    if(getpair2.Result.Response.Value != null)
                     {
-                        await next();
+                        string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
+                        Console.WriteLine("------------Secret Key------------"+secret);
+                        Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();
+                        rsaExportedPublicKey.ImportPublicKey(secret);
+                        var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
+                        var jwt = new Chilkat.Jwt();
+                        if (jwt.VerifyJwtPk(token, publickey)&&(jwt.IsTimeValid(token,0)))
+                        {
+                            await next();
+                        }
+                        else
+                        {
+                            context.Response.StatusCode = 403;
+                            await context.Response.WriteAsync("UnAuthorized");
+                        }
                     }
                     else
                     {
                         context.Response.StatusCode = 403;
-                        await context.Response.WriteAsync("UnAuthorized");
+                        await context.Response.WriteAsync("UnAuthorized");   
                     }
                 }
             });

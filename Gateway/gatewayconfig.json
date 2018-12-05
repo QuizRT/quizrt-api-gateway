@@ -73,37 +73,51 @@
         {
           "DownstreamPathTemplate": "/",
           "DownstreamScheme": "http",
-          "ServiceName": "gameplay",
+          "ServiceName": "GamePlay",
           "UpstreamPathTemplate": "/gameplay/",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
           "DownstreamPathTemplate": "/gameplay/{url}",
           "DownstreamScheme": "http",
-          "ServiceName": "gameplay",
+          "ServiceName": "GamePlay",
           "UpstreamPathTemplate": "/gameplay/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
           "DownstreamPathTemplate": "/api/{catch}",
           "DownstreamScheme": "http",
-          "ServiceName": "Social",
-          "UpstreamPathTemplate": "/socialservice/{catch}",
+          "ServiceName": "SocialEngine",
+          "UpstreamPathTemplate": "/socialengine/{catch}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
           "DownstreamPathTemplate": "/",
           "DownstreamScheme": "http",
-          "ServiceName": "SocialUI",
+          "ServiceName": "Social",
           "UpstreamPathTemplate": "/social/",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
           "DownstreamPathTemplate": "/social/{url}",
           "DownstreamScheme": "http",
-          "ServiceName": "SocialUI",
+          "ServiceName": "Social",
           "UpstreamPathTemplate": "/social/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Auth/",
+            "DownstreamScheme": "http",
+            "ServiceName": "Authentication",
+            "UpstreamPathTemplate": "/auth/",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Auth/{url}",
+            "DownstreamScheme": "http",
+            "ServiceName": "Authentication",
+            "UpstreamPathTemplate": "/auth/{url}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         }
     ],
     "GlobalConfiguration": {

@@ -77,7 +77,7 @@ namespace Gateway
                         rsaExportedPublicKey.ImportPublicKey(secret);
                         var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
                         var jwt = new Chilkat.Jwt();
-                        if (jwt.VerifyJwtPk(token, publickey)&&(jwt.IsTimeValid(token,0)))
+                        if (jwt.VerifyJwtPk(token, publickey))
                         {
                             await next();
                         }
@@ -90,7 +90,7 @@ namespace Gateway
                     // else
                     // {
                     //     context.Response.StatusCode = 403;
-                    //     await context.Response.WriteAsync("UnAuthorized");   
+                    //     await context.Response.WriteAsync("UnAuthorized");   &&(jwt.IsTimeValid(token,0)
                     // }
                 }
             });

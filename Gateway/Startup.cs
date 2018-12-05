@@ -54,47 +54,54 @@ namespace Gateway
             app.Use(async (context, next) => {
                 //var token = context.Request.Headers["Authorization"];
                // var token = context.Request.Cookies["UserLoginAPItoken"];
-               Microsoft.AspNetCore.Http.IRequestCookieCollection cookies = context.Request.Cookies;
-               var token = cookies["UserLoginAPItoken"];
-                Chilkat.Global glob = new Chilkat.Global();
-                glob.UnlockBundle("Anything for 30-day trial");
 
-                using (var client = new ConsulClient())
-                {
-                    Console.WriteLine("---------entered consul----------------");
-                    client.Config.Address = new Uri("http://consul:8500");
-                    var getpair2 = client.KV.Get("secretkey");
-                    Console.WriteLine("------got the getpair2------");
-                    Console.WriteLine("-------key-----" + getpair2.Result.Response.Key);
-                    Console.WriteLine("------Value-----"+ getpair2.Result.Response.Value);
-                    //var getresult = getpair2.Result.Response.Value
-                    // if(getpair2.Result.Response.Value != null)
-                    // {
-                        Console.WriteLine("---------Entered the function");
-                        string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
-                        Console.WriteLine("------------Secret Key------------"+secret);
-                        Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();
-                        rsaExportedPublicKey.ImportPublicKey(secret);
-                        var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
-                        Console.WriteLine("--------publickey--------"+ publickey);
-                        Console.WriteLine("-----token-----" + token);
-                        var jwt = new Chilkat.Jwt();
-                        if (jwt.VerifyJwtPk(token, publickey))
-                        {
-                            Console.WriteLine("--inside verify");
-                            await next();
-                        }
-                        else
-                        {
-                            context.Response.StatusCode = 403;
-                            await context.Response.WriteAsync("UnAuthorized");
-                        }
-                    // }
-                    // else
-                    // {
-                    //     context.Response.StatusCode = 403;
-                    //     await context.Response.WriteAsync("UnAuthorized");   &&(jwt.IsTimeValid(token,0)
-                    // }
+               //switch(context.Request.Path.ToString())
+               Console.WriteLine(context.Request.Path.ToString());
+               //switch(context.Request.Path.ToString())
+               if(context.Request.Path.Value.StartsWith("/auth") || context.Request.Path.Value.StartsWith("/gameplay") || context.Request.Path.Value.StartsWith("/favicon")) 
+               {
+                    Console.WriteLine("Calling next middleware");
+                    await next();
+               }
+               else
+               {
+                    Microsoft.AspNetCore.Http.IRequestCookieCollection cookies = context.Request.Cookies;
+                    var token = cookies["UserLoginAPItoken"];
+                    Chilkat.Global glob = new Chilkat.Global();
+                    glob.UnlockBundle("Anything for 30-day trial");
+
+                    using (var client = new ConsulClient())
+                    {
+                        Console.WriteLine("---------entered consul----------------");
+                        client.Config.Address = new Uri("http://consul:8500");
+                        var getpair2 = client.KV.Get("secretkey");
+                        Console.WriteLine(getpair2);
+                        Console.WriteLine("------got the getpair2------");
+                        Console.WriteLine("-------key-----" + getpair2.Result.Response.Key);
+                        Console.WriteLine("------Value-----"+ getpair2.Result.Response.Value);
+                        //var getresult = getpair2.Result.Response.Value
+                        // if(getpair2.Result.Response.Value != null)
+                        // {
+                            Console.WriteLine("---------Entered the function");
+                            string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
+                            Console.WriteLine("------------Secret Key------------"+secret);
+                            Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();
+                            rsaExportedPublicKey.ImportPublicKey(secret);
+                            var publickey = rsaExportedPublicKey.ExportPublicKeyObj();
+                            Console.WriteLine("--------publickey--------"+ publickey);
+                            Console.WriteLine("-----token-----" + token);
+                            var jwt = new Chilkat.Jwt();
+                            if (jwt.VerifyJwtPk(token, publickey))
+                            {
+                                Console.WriteLine("--inside verify");
+                                await next();
+                            }
+                            else
+                            {
+                                context.Response.StatusCode = 403;
+                                await context.Response.WriteAsync("UnAuthorized");
+                            }
+                    }
                 }
             });
 

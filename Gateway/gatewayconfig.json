@@ -71,9 +71,16 @@
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-          "DownstreamPathTemplate": "/{url}",
+          "DownstreamPathTemplate": "/",
           "DownstreamScheme": "http",
-          "ServiceName": "GamePlay",
+          "ServiceName": "gameplay",
+          "UpstreamPathTemplate": "/gameplay/",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+          "DownstreamPathTemplate": "/gameplay/{url}",
+          "DownstreamScheme": "http",
+          "ServiceName": "gameplay",
           "UpstreamPathTemplate": "/gameplay/{url}",
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },

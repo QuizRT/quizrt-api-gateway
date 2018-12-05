@@ -58,7 +58,7 @@ namespace Gateway
                //switch(context.Request.Path.ToString())
                Console.WriteLine(context.Request.Path.ToString());
                //switch(context.Request.Path.ToString())
-               if(context.Request.Path.Value.StartsWith("/auth") || context.Request.Path.Value == "/quizmaster") 
+               if(context.Request.Path.Value.StartsWith("/auth") || context.Request.Path.Value.StartsWith("/quizmaster")) 
                {
                     Console.WriteLine("Calling next middleware");
                     await next();
@@ -75,6 +75,7 @@ namespace Gateway
                         Console.WriteLine("---------entered consul----------------");
                         client.Config.Address = new Uri("http://consul:8500");
                         var getpair2 = client.KV.Get("secretkey");
+                        Console.WriteLine(getpair2);
                         Console.WriteLine("------got the getpair2------");
                         Console.WriteLine("-------key-----" + getpair2.Result.Response.Key);
                         Console.WriteLine("------Value-----"+ getpair2.Result.Response.Value);

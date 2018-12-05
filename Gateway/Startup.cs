@@ -53,7 +53,9 @@ namespace Gateway
 
             app.Use(async (context, next) => {
                 //var token = context.Request.Headers["Authorization"];
-                var token = context.Request.Cookies["UserLoginAPItoken"];
+               // var token = context.Request.Cookies["UserLoginAPItoken"];
+               Microsoft.AspNetCore.Http.IRequestCookieCollection cookies = context.Request.Cookies;
+               var token = cookies["UserLoginAPItoken"];
                 Chilkat.Global glob = new Chilkat.Global();
                 glob.UnlockBundle("Anything for 30-day trial");
 

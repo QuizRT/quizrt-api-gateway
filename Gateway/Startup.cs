@@ -60,7 +60,7 @@ namespace Gateway
                switch(context.Request.Path.ToString())
                {
                    case "/Authentication/login":
-                   case "/Authentication/signup"
+                   case "/Authentication/signup":
                         Console.WriteLine("Calling next middleware");
                         await next();
                         break;

@@ -62,9 +62,13 @@ namespace Gateway
                     Console.WriteLine("---------entered consul----------------");
                     client.Config.Address = new Uri("http://consul:8500");
                     var getpair2 = client.KV.Get("myPublicKey");
+                    Console.WriteLine("------got the getpair2------");
+                    Console.WriteLine("-------key-----" + getpair2.Result.Response.Key);
+                    Console.WriteLine("------Value-----"+ getpair2.Result.Response.Value);
                     //var getresult = getpair2.Result.Response.Value
                     if(getpair2.Result.Response.Value != null)
                     {
+                        Console.WriteLine("---------Entered the function");
                         string secret = System.Text.Encoding.UTF8.GetString(getpair2.Result.Response.Value);
                         Console.WriteLine("------------Secret Key------------"+secret);
                         Chilkat.Rsa rsaExportedPublicKey = new Chilkat.Rsa();

@@ -57,6 +57,13 @@ namespace Gateway
 
                //switch(context.Request.Path.ToString())
                Console.WriteLine(context.Request.Path.ToString());
+               switch(context.Request.Path.ToString())
+               {
+                   case "/Authentication/login":
+                        Console.WriteLine("Calling next middleware");
+                        await next();
+                        break;
+               }
                Microsoft.AspNetCore.Http.IRequestCookieCollection cookies = context.Request.Cookies;
                var token = cookies["UserLoginAPItoken"];
                 Chilkat.Global glob = new Chilkat.Global();

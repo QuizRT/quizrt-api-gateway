@@ -78,6 +78,13 @@
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
+          "DownstreamPathTemplate": "/gameplayhub/negotiate/",
+          "DownstreamScheme": "http",
+          "ServiceName": "QuizEngine",
+          "UpstreamPathTemplate": "/gameplayhub/negotiate/",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
           "DownstreamPathTemplate": "/",
           "DownstreamScheme": "http",
           "ServiceName": "GamePlay",

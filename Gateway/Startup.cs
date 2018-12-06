@@ -105,6 +105,7 @@ namespace Gateway
                 }
             });
 
+            app.UseWebSockets();
             app.UseOcelot().Wait();
         }
     }

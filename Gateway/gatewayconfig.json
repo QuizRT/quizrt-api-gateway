@@ -76,7 +76,7 @@
             "ServiceName": "QuizEngine",
             "UpstreamPathTemplate": "/gameplayhub",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-        }
+        },
         {
           "DownstreamPathTemplate": "/",
           "DownstreamScheme": "http",

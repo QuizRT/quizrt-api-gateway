@@ -58,7 +58,8 @@ namespace Gateway
                //switch(context.Request.Path.ToString())
                Console.WriteLine(context.Request.Path.ToString());
                //switch(context.Request.Path.ToString())
-               if(context.Request.Path.Value.StartsWith("/auth") || context.Request.Path.Value.StartsWith("/gameplay") || context.Request.Path.Value.StartsWith("/favicon") || context.Request.Path.Value.StartsWith("/questiongenerator")) 
+               if(context.Request.Path.Value.StartsWith("/auth") || context.Request.Path.Value.StartsWith("/gameplay") || context.Request.Path.Value.StartsWith("/favicon") 
+               || context.Request.Path.Value.StartsWith("/questiongenerator") || context.Request.Path.Value.StartsWith("/quizmaster")) 
                {
                     Console.WriteLine("Calling next middleware");
                     await next();

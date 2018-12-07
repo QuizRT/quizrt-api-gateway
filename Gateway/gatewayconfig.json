@@ -92,6 +92,13 @@
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
+          "DownstreamPathTemplate": "/api",
+          "DownstreamScheme": "http",
+          "ServiceName": "SocialEngine",
+          "UpstreamPathTemplate": "/socialengine",
+          "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
           "DownstreamPathTemplate": "/api/{catch}",
           "DownstreamScheme": "http",
           "ServiceName": "SocialEngine",

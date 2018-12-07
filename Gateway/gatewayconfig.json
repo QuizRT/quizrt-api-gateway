@@ -125,6 +125,13 @@
             "ServiceName": "Authentication",
             "UpstreamPathTemplate": "/auth/{url}",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/notifications/{catch}",
+            "DownstreamScheme": "http",
+            "ServiceName": "NotificationService",
+            "UpstreamPathTemplate": "/notifications/{catch}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         }
     ],
     "GlobalConfiguration": {

@@ -78,6 +78,27 @@
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
+            "DownstreamPathTemplate": "/notifications/{catchAll}",
+            "DownstreamScheme": "ws",
+            "ServiceName": "NotificationService",
+            "UpstreamPathTemplate": "/notifications/{catchAll}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/notifications",
+            "DownstreamScheme": "ws",
+            "ServiceName": "NotificationService",
+            "UpstreamPathTemplate": "/notifications",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/notifications/{catch}",
+            "DownstreamScheme": "http",
+            "ServiceName": "NotificationService",
+            "UpstreamPathTemplate": "/notifications/{catch}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
           "DownstreamPathTemplate": "/",
           "DownstreamScheme": "http",
           "ServiceName": "GamePlay",
@@ -131,13 +152,6 @@
             "DownstreamScheme": "http",
             "ServiceName": "Authentication",
             "UpstreamPathTemplate": "/auth/{url}",
-            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-        },
-        {
-            "DownstreamPathTemplate": "/api/notifications/{catch}",
-            "DownstreamScheme": "http",
-            "ServiceName": "NotificationService",
-            "UpstreamPathTemplate": "/notifications/{catch}",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         }
     ],

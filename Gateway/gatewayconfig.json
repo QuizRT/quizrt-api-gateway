@@ -95,7 +95,7 @@
             "DownstreamPathTemplate": "/api/notifications/{catch}",
             "DownstreamScheme": "http",
             "ServiceName": "NotificationService",
-            "UpstreamPathTemplate": "/notifications/{catch}",
+            "UpstreamPathTemplate": "/api/notifications/{catch}",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {

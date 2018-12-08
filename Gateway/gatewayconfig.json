@@ -78,17 +78,10 @@
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-            "DownstreamPathTemplate": "/notifications/{catchAll}",
+            "DownstreamPathTemplate": "/{catchAll}",
             "DownstreamScheme": "ws",
             "ServiceName": "NotificationService",
-            "UpstreamPathTemplate": "/notifications/{catchAll}",
-            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-        },
-        {
-            "DownstreamPathTemplate": "/notifications",
-            "DownstreamScheme": "ws",
-            "ServiceName": "NotificationService",
-            "UpstreamPathTemplate": "/notifications",
+            "UpstreamPathTemplate": "/hub/{catchAll}",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {

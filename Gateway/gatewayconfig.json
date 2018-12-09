@@ -64,7 +64,7 @@
           "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-            "DownstreamPathTemplate": "/{catchAll}",
+            "DownstreamPathTemplate": "/gameplayhub/{catchAll}",
             "DownstreamScheme": "ws",
             "ServiceName": "QuizEngine",
             "UpstreamPathTemplate": "/gameplayhub/{catchAll}",

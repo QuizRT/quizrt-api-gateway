@@ -71,10 +71,24 @@
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
-            "DownstreamPathTemplate": "/hub/{catchAll}",
+            "DownstreamPathTemplate": "/gameplayhub",
+            "DownstreamScheme": "ws",
+            "ServiceName": "QuizEngine",
+            "UpstreamPathTemplate": "/gameplayhub",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/{catchAll}",
             "DownstreamScheme": "ws",
             "ServiceName": "NotificationService",
             "UpstreamPathTemplate": "/hub/{catchAll}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+        },
+        {
+            "DownstreamPathTemplate": "/",
+            "DownstreamScheme": "ws",
+            "ServiceName": "NotificationService",
+            "UpstreamPathTemplate": "/hub",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
         },
         {
